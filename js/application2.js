@@ -8871,15 +8871,16 @@ function () {
         }
     ]), e.factory("Reddit", ["$http",
         function (e) {
-            var n;
+            var n, page = 0;
             return n = function () {
                 function n() {
                     this.nextPage = t(this.nextPage, this), this.items = [], this.busy = !1, this.after = ""
                 }
                 return n.prototype.nextPage = function () {
+                  page++;
                     var t, n = this;
                   //old uri - http://api.reddit.com/hot?after=&jsonp=JSON_CALLBACK
-                    if (!this.busy) return this.busy = !0, t = "./feed", e.get(t).success(function (e) {
+                    if (!this.busy) return this.busy = !0, t = "./feed.php", e.get(t).success(function (e) {
                         var t, i, r, o;
                         //for (i = e.data.children, r = 0, o = i.length; o > r; r++) t = i[r], n.items.push(t.data);
                         angular.forEach(e.data, function (item){
