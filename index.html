@@ -1,147 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Test AngularJs</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-        
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <link rel="icon" type="image/png" href="img/favicon.png" />
-        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
-        <!-- Main stylesheet -->
-  		<link href="css/style.css" rel="stylesheet">
-    </head>
-    
-    <body ng-app='infiniteScrollSite'>
-        
-    <nav class="navbar navbar-fixed-top">
-      <ul>
-             <li class="hidden-xs logo_text_bg"><a href="#" target="_ext" class="logo_text">Test AngularJs</a></li>
-             <li class="icon-custom-sketchsocial" data-tooltip="" data-style="qtip-bootstrap"><a href="#" id="btnNotification"></a></li>
-             <li class="hidden-xs" data-toggle="modal" data-target="#addModal"><a href="#" id="addBtn"> <i class="glyphicon glyphicon-plus"><span>add</span></i></a></li>
-             <li class="visible-xs" data-toggle="modal" data-target="#addModal"><a href="#" id="addBtn2"> <i class="glyphicon glyphicon-plus visible-xs"><span>add</span></i></a></li>
-             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-star"></i><span class="badge pull-right">40</span></a></li>
-             <!--<li><a href="#" id="btnToggle"><i class="glyphicon glyphicon-th-large"></i></a></li>-->
-            
-             <li class="user-menu">
-               <div class="btn-group ">
-                <button type="button" class="dropdown-toggle btn-user" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"><span>profile</span></i></button>
-                <ul class="dropdown-menu budge-down pull-right" role="menu">
-                  <li><a href="#">Register</a></li>
-                  <li data-toggle="modal" data-target="#loginModal"><a href="#">Sign In</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-                </div>
-             </li>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Test AngularJs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link rel="icon" type="image/png" href="img/favicon.png"/>
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+  <!-- Main stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body ng-app='infiniteScrollSite'>
+
+<nav class="navbar navbar-fixed-top">
+  <ul>
+    <li class="hidden-xs logo_text_bg"><a href="#" target="_ext" class="logo_text">Test AngularJs</a></li>
+    <li class="icon-custom-sketchsocial" data-tooltip="" data-style="qtip-bootstrap"><a href="#"
+                                                                                        id="btnNotification"></a></li>
+    <li class="hidden-xs" data-toggle="modal" data-target="#addModal"><a href="#" id="addBtn"> <i
+        class="glyphicon glyphicon-plus"><span>add</span></i></a></li>
+    <li class="visible-xs" data-toggle="modal" data-target="#addModal"><a href="#" id="addBtn2"> <i
+        class="glyphicon glyphicon-plus visible-xs"><span>add</span></i></a></li>
+    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-star"></i><span
+        class="badge pull-right">40</span></a></li>
+    <!--<li><a href="#" id="btnToggle"><i class="glyphicon glyphicon-th-large"></i></a></li>-->
+
+    <li class="user-menu">
+      <div class="btn-group ">
+        <button type="button" class="dropdown-toggle btn-user" data-toggle="dropdown"><i
+            class="glyphicon glyphicon-user"><span>profile</span></i></button>
+        <ul class="dropdown-menu budge-down pull-right" role="menu">
+          <li><a href="#">Register</a></li>
+          <li data-toggle="modal" data-target="#loginModal"><a href="#">Sign In</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+        </ul>
+      </div>
+    </li>
              <span class="visible-xs">
              <li class="search-menu">
                <div class="btn-group">
-                <button type="button" class="btn-user"><i class="glyphicon glyphicon-search"></i></button>
-                <ul id="search-dropdown" class="dropdown-menu">
-                  <li>
-                      <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                      <div class="input-group-btn " >
-                      <button id="searchBtn2" class="btn btn-default btn-primary btn-search" type="submit"><i class="glyphicon glyphicon-search" ></i></button>
-                      </div>
-                      </div>
-                  </li>
-                </ul>
-                </div>
+                 <button type="button" class="btn-user"><i class="glyphicon glyphicon-search"></i></button>
+                 <ul id="search-dropdown" class="dropdown-menu">
+                   <li>
+                     <div class="input-group">
+                       <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+
+                       <div class="input-group-btn ">
+                         <button id="searchBtn2" class="btn btn-default btn-primary btn-search" type="submit"><i
+                             class="glyphicon glyphicon-search"></i></button>
+                       </div>
+                     </div>
+                   </li>
+                 </ul>
+               </div>
              </li>
              </span>
-           </ul>
-          <form class="navbar-form pull-right hidden-xs">
-              <div class="input-group" >
-                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                <div class="input-group-btn " >
-                <button id="searchBtn" class="btn btn-default btn-primary btn-search" type="submit"><i class="glyphicon glyphicon-search" ></i></button>
-                </div>
-              </div>
-          </form>
-    </nav>      
-  
+  </ul>
+  <form class="navbar-form pull-right hidden-xs">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+
+      <div class="input-group-btn ">
+        <button id="searchBtn" class="btn btn-default btn-primary btn-search" type="submit"><i
+            class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+  </form>
+</nav>
+
 <!--main-->
 <div class="container" id="main" ng-controller="RemoteDemoController">
-   <div class="row" infinite-scroll="nextPage()" infinite-scroll-disabled="paused()" infinite-scroll-distance="1" class="demo-container">
-     
-     	<!-- START DEFAULT PANEL FOR CONTENT -->
-        <div class="panel " ng-repeat="item in reddit.items">
-           <div class="panel-heading">
-                <div class="btn-group pull-right">
-                  <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">More Options</span>
-                  </button>
-                  <ul class="dropdown-menu menu-sm" role="menu">
-                  	<li class="bigger-menu"><a href="#">Share this</a></li>
-                    <li class="bigger-menu"><a href="#">Close this</a></li>
-                    <li class="bigger-menu"><a href="#">View All From User</a></li>
-                    <li class="bigger-menu"><a href="#">Hide All From User</a></li>
-                    <!--<!--<li class="bigger-menu"><a href="#">Show More Like This</a></li>
-                    <li class="bigger-menu"><a href="#">Show Less Like This</a></li>-->
-                  </ul>
-                </div>
-            	<h4>{{item.title}}</h4>
-            </div>
-   			<div class="panel-body" style="margin-top:-20px;">
-              <div class="panel-img">
-              	  <img src="http://placehold.it/335x250" class="img-thumbnail">
-              </div>
-              <div class="clearfix"></div>
-              <hr style="padding-bottom:20px;">
-              <form>
-              <div class="input-group" style="width:100%;"">
-                <!--<div class="input-group-btn">
-                <button class="btn btn-default btn-lg" id="likeBtn"><i class="glyphicon glyphicon-share"></i></button>
-                </div>-->
-                <input type="text" class="form-control input-lg" placeholder="Add a comment..">
-              </div>
-          	  </form>
-              <p class="alignleft"><br />{{item.author}}</a></p>
-              <p class="alignleft"><br />{{item.num_comments}} comments</p>
-            </div>
-         </div>
-         <!-- END DEFAULT PANEL -->
-         
-         
-  
-  </div><!--/row-->
-  
-  <hr>
-      
-    <br />
-    
-    <div class="clearfix"></div>
-    
+  <div class="row" infinite-scroll="nextPage()" infinite-scroll-disabled="paused()" infinite-scroll-distance="1"
+       class="demo-container">
+
+    <!-- START DEFAULT PANEL FOR CONTENT -->
+    <div class="panel " ng-repeat="item in reddit.items">
+      <div class="panel-heading">
+        <div class="btn-group pull-right">
+          <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">More Options</span>
+          </button>
+          <ul class="dropdown-menu menu-sm" role="menu">
+            <li class="bigger-menu"><a href="#">Share this</a></li>
+            <li class="bigger-menu"><a href="#">Close this</a></li>
+            <li class="bigger-menu"><a href="#">View All From User</a></li>
+            <li class="bigger-menu"><a href="#">Hide All From User</a></li>
+            <!--<!--<li class="bigger-menu"><a href="#">Show More Like This</a></li>
+            <li class="bigger-menu"><a href="#">Show Less Like This</a></li>-->
+          </ul>
+        </div>
+        <a ng-href="{{item.url}}"><h4>{{item.title}}</h4></a>
+      </div>
+      <div class="panel-body" style="margin-top:-20px;">
+        <div class="panel-img">
+          <img ng-src="{{item.imgurl}}" class="img-thumbnail">
+        </div>
+        <div class="clearfix"></div>
+        <hr style="padding-bottom:20px;">
+        <form>
+          <div class="input-group" style="width:100%;">
+          <!--<div class="input-group-btn">
+          <button class="btn btn-default btn-lg" id="likeBtn"><i class="glyphicon glyphicon-share"></i></button>
+          </div>-->
+          <input type="text" class="form-control input-lg" placeholder="Add a comment..">
+      </div>
+      </form>
+        <p class="alignleft"><br /> userid : {{item.userid}}</a></p>
+        <p class="alignleft"><br /> opt1: {{item.opt1}}</a></p>
+        <p class="alignleft"><br />opt2: {{item.opt2}}</a></p>
+    </div>
   </div>
-  
-  <div id="push"></div>
+  <!-- END DEFAULT PANEL -->
+
+
+</div>
+<!--/row-->
+
+<hr>
+
+<br/>
+
+<div class="clearfix"></div>
+
+</div>
+
+<div id="push"></div>
 </div><!--/main-->
 
 
 <div id="footer">
-      <div class="container">
-        <div class="col-md-12 text-center">&copy; Copyright 2014. All rights reserved.</div>
-      </div>
-    </div>
+  <div class="container">
+    <div class="col-md-12 text-center">&copy; Copyright 2014. All rights reserved.</div>
+  </div>
+</div>
 
 
-        <script type='text/javascript' src="js/application2.js"></script>
+<script type='text/javascript' src="js/application2.js"></script>
+<script type='text/javascript' src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script type='text/javascript' src="js/main.js"></script>
 
-        <script type='text/javascript' src="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-        
-        <script type='text/javascript' src="js/main.js"></script>
-
-    </body>
+</body>
 </html>
