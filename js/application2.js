@@ -8878,9 +8878,14 @@ function () {
                 }
                 return n.prototype.nextPage = function () {
                     var t, n = this;
-                    if (!this.busy) return this.busy = !0, t = "http://api.reddit.com/hot?after=&jsonp=JSON_CALLBACK", e.jsonp(t).success(function (e) {
+                  //old uri - http://api.reddit.com/hot?after=&jsonp=JSON_CALLBACK
+                    if (!this.busy) return this.busy = !0, t = "./feed", e.get(t).success(function (e) {
                         var t, i, r, o;
-                        for (i = e.data.children, r = 0, o = i.length; o > r; r++) t = i[r], n.items.push(t.data);
+                        //for (i = e.data.children, r = 0, o = i.length; o > r; r++) t = i[r], n.items.push(t.data);
+                        angular.forEach(e.data, function (item){
+                          n.items.push(item);
+                        });
+
                         return n.after = n.items[n.items.length - 1].id, n.busy = !1;
                     })
                 }, n
