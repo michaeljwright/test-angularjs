@@ -8,7 +8,7 @@ var app = express();
 app.use(express.static(__dirname));
 
 app.get('/feed', function(req, res) {
-  res.sendfile('feed_test.json', { root: __dirname });
+  res.sendfile('feed.json', { root: __dirname });
 });
 
 app.all('/*', function(req, res) {
