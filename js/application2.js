@@ -8880,7 +8880,9 @@ function () {
                   page++;
                     var t, n = this;
                   //old uri - http://api.reddit.com/hot?after=&jsonp=JSON_CALLBACK
-                    if (!this.busy) return this.busy = !0, t = "./feed.php", e.get(t).success(function (e) {
+                  //test - http://localhost:3000/feed.php?jsonp=JSON_CALLBACK
+                  //new  - http://touchreel.com/feed.php?jsonp=JSON_CALLBACK
+                    if (!this.busy) return this.busy = !0, t = "http://touchreel.com/feed.php?jsonp=JSON_CALLBACK", e.jsonp(t).success(function (e) {
                         var t, i, r, o;
                         //for (i = e.data.children, r = 0, o = i.length; o > r; r++) t = i[r], n.items.push(t.data);
                         angular.forEach(e.data, function (item){
