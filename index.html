@@ -68,9 +68,9 @@
              </li>
              </span>
   </ul>
-  <form class="navbar-form pull-right hidden-xs">
+  <form class="navbar-form pull-right hidden-xs" ng-submit="find()">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+      <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term" ng-model="search">
 
       <div class="input-group-btn ">
         <button id="searchBtn" class="btn btn-default btn-primary btn-search" type="submit"><i
