@@ -8876,13 +8876,15 @@ function () {
                 function n() {
                     this.nextPage = t(this.nextPage, this), this.items = [], this.busy = !1, this.after = ""
                 }
-                return n.prototype.nextPage = function () {
+                return n.prototype.nextPage = function (search) {
+                  this.search = search || this.search || '';
+                  //debugger
                   page++;
                     var t, n = this;
                   //old uri - http://api.reddit.com/hot?after=&jsonp=JSON_CALLBACK
                   //test - http://localhost:3000/feed.php?jsonp=JSON_CALLBACK
                   //new  - http://touchreel.com/feed.php?jsonp=JSON_CALLBACK
-                    if (!this.busy) return this.busy = !0, t = "http://touchreel.com/feed.php?jsonp=JSON_CALLBACK", e.jsonp(t).success(function (e) {
+                    if (!this.busy) return this.busy = !0, t = "http://touchreel.com/feed.php?s=" + this.search + "&jsonp=JSON_CALLBACK", e.jsonp(t).success(function (e) {
                         var t, i, r, o;
                         //for (i = e.data.children, r = 0, o = i.length; o > r; r++) t = i[r], n.items.push(t.data);
                         angular.forEach(e.data, function (item){
@@ -8894,14 +8896,28 @@ function () {
                 }, n
             }()
         }
-    ]), e.controller("RemoteDemoController", ["$scope", "Reddit",
-        function (e, t) {
-            var n;
-            return n = e.reddit = new t, e.nextPage = function () {
-                return e.paused() ? void 0 : n.nextPage()
-            }, e.paused = function () {
-                return n.busy || n.items.length >= 1e3
-            }
+    ]), e.controller("RemoteDemoController", ["$scope", "$rootScope","Reddit",
+        function ($scope, $rootScope, Reddit) {
+
+            $scope.reddit = new Reddit;
+
+            $scope.itemsRefresh = function(){
+              $scope.reddit.items = [];
+            };
+
+
+          $rootScope.find = function(){
+              $scope.itemsRefresh();
+              $scope.reddit.nextPage($rootScope.search);
+            };
+
+            $scope.nextPage = function () {
+                return $scope.paused() ? void 0 : $scope.reddit.nextPage()
+            };
+
+            $scope.paused = function () {
+                return $scope.reddit.busy || $scope.reddit.items.length >= 1e3
+            };
         }
-    ])
+    ]);
 }.call(this);
