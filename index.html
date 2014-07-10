@@ -7,12 +7,12 @@
   <title>Test AngularJs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <script type='text/javascript' src="js/libs/modernizr.js"></script>
   <![endif]-->
+  <script type='text/javascript' src="js/libs/modernizr.js"></script>
+
   <link rel="icon" type="image/png" href="img/favicon.png"/>
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
@@ -113,28 +113,30 @@
         <hr style="padding-bottom:20px;">
         <form>
           <div class="input-group" style="width:100%;">
-          <!--<div class="input-group-btn">
-          <button class="btn btn-default btn-lg" id="likeBtn"><i class="glyphicon glyphicon-share"></i></button>
-          </div>-->
-          <input type="text" class="form-control input-lg" placeholder="Add a comment..">
+            <!--<div class="input-group-btn">
+            <button class="btn btn-default btn-lg" id="likeBtn"><i class="glyphicon glyphicon-share"></i></button>
+            </div>-->
+            <input type="text" class="form-control input-lg" placeholder="Add a comment..">
+          </div>
+        </form>
+        <p class="alignleft"><br/> userid : {{item.userid}}</a></p>
+
+        <p class="alignleft"><br/> opt1: {{item.opt1}}</a></p>
+
+        <p class="alignleft"><br/>opt2: {{item.opt2}}</a></p>
       </div>
-      </form>
-        <p class="alignleft"><br /> userid : {{item.userid}}</a></p>
-        <p class="alignleft"><br /> opt1: {{item.opt1}}</a></p>
-        <p class="alignleft"><br />opt2: {{item.opt2}}</a></p>
     </div>
+    <!-- END DEFAULT PANEL -->
+
+
   </div>
-  <!-- END DEFAULT PANEL -->
+  <!--/row-->
 
+  <hr>
 
-</div>
-<!--/row-->
+  <br/>
 
-<hr>
-
-<br/>
-
-<div class="clearfix"></div>
+  <div class="clearfix"></div>
 
 </div>
 
