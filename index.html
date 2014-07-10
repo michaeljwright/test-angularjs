@@ -11,6 +11,7 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <script type='text/javascript' src="js/libs/modernizr.js"></script>
   <![endif]-->
   <link rel="icon" type="image/png" href="img/favicon.png"/>
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -86,7 +87,7 @@
        class="demo-container">
 
     <!-- START DEFAULT PANEL FOR CONTENT -->
-    <div class="panel " ng-repeat="item in reddit.items">
+    <div class="panel " ng-repeat="item in loader.items">
       <div class="panel-heading">
         <div class="btn-group pull-right">
           <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown">

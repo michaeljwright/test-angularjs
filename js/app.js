@@ -1,10 +1,15 @@
 app = angular.module('infiniteScrollSite', ['infinite-scroll']);
 
-app.factory('Loader', ['$http', function($http) {
+app.constant('settings', {
+  'api' : 'http://touchreel.com/feed.php?s=%search%&jsonp=JSON_CALLBACK'
+});
+
+
+app.factory('Loader', ['$http', 'settings', function($http, settings) {
   function Loader(){
     this.items = [];
+    this.search = '';
     this.busy = false;
-    this.after = "";
   }
   Loader.prototype.nextPage = function(search){
     
@@ -13,16 +18,14 @@ app.factory('Loader', ['$http', function($http) {
     if (this.busy){
         return;
     }
-    this.busy = 1;
+    this.busy = true;
 
-    var url = "http://touchreel.com/feed.php?s=" + this.search + "&jsonp=JSON_CALLBACK";
+    var url = settings.api.replace('%search%', this.search);
     return $http.jsonp(url).success(function (result) {
-      debugger
       angular.forEach(result.data, function (item){
         self.items.push(item);
       });
-      self.after = self.items[self.items.length - 1].id;
-      self.busy = !1;
+      self.busy = false;
     });
 
   }
@@ -31,23 +34,25 @@ app.factory('Loader', ['$http', function($http) {
 }]);
 
 app.controller('RemoteDemoController', ["$scope", "$rootScope","Loader", function($scope, $rootScope, Loader) {
-  $scope.reddit = new Loader;
+  $scope.loader = new Loader;
 
   $scope.itemsRefresh = function(){
-    $scope.reddit.items = [];
+    $scope.loader.items = [];
   };
 
   $rootScope.find = function(){
     $scope.itemsRefresh();
-    $scope.reddit.nextPage($rootScope.search);
+    $scope.loader.nextPage($rootScope.search);
   };
 
   $scope.nextPage = function () {
-    return $scope.paused() ? void 0 : $scope.reddit.nextPage()
+    if(!$scope.paused()){
+      $scope.loader.nextPage();
+    }
   };
 
   $scope.paused = function () {
-    return $scope.reddit.busy || $scope.reddit.items.length >= 1e3
+    return $scope.loader.busy || $scope.loader.items.length >= 1000
   };
 }]);
 
